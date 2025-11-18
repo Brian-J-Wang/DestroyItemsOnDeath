@@ -6,8 +6,8 @@
     "outDir": "./",
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "none",
-    "target": "esnext",
+    "module": "preserve",
+    "target": "es6",
     "types": [],
     "esModuleInterop": false,
     "isolatedModules": false,
