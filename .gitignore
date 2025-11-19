@@ -7,3 +7,5 @@ startup_scripts
 !src/client_scripts
 !src/server_scripts
 !src/startup_scripts
+node_modules
+data
