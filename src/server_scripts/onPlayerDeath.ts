@@ -1,10 +1,14 @@
+//@ts-nocheck
 EntityEvents.death(event => {
     if (!event.entity.isPlayer()) {
         return;
     }
 
-    //@ts-ignore
-    const player = (event.entity as Internal.Player);
-    player.inventory.clearContent();
-    player.curiosInventory.equippedCurios.clear();      
-});
+    const player = new global.Player(event.entity) as IPlayer;
+    const playerDataIO = new global.PlayerDataIO(player.uuid, event.server.persistentData.worldUUID) as IPlayerDataIO;
+    const newStats = player.updateInventoryLoss(playerDataIO.getPlayerData);
+    newStats.totalDeaths += 1;
+    newStats.deathTimeStamp = Date.now();
+    
+    player.clearInventory();
+})

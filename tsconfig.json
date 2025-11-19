@@ -8,7 +8,6 @@
     // See also https://aka.ms/tsconfig/module
     "module": "preserve",
     "target": "es6",
-    "types": [],
     "esModuleInterop": false,
     "isolatedModules": false,
     "alwaysStrict": false,
@@ -43,6 +42,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-  "include": ["**/*"],
-  "exclude": [""]
+  "include": ["**/*", ],
+  "exclude": ["./src/types"]
 }
