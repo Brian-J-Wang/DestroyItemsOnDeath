@@ -6,9 +6,11 @@ EntityEvents.death(event => {
 
     const player = new global.Player(event.entity) as IPlayer;
     const playerDataIO = new global.PlayerDataIO(player.uuid, event.server.persistentData.worldUUID) as IPlayerDataIO;
-    const newStats = player.updateInventoryLoss(playerDataIO.getPlayerData);
+    const newStats = player.updateInventoryLoss(playerDataIO.getPlayerData());
     newStats.totalDeaths += 1;
     newStats.deathTimeStamp = Date.now();
-    playerDataIO.updatePlayerData();
+    console.log(newStats);
+
+    playerDataIO.updatePlayerData(newStats);
     player.clearInventory();
 })
