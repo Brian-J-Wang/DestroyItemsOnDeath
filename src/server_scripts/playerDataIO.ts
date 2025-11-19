@@ -1,11 +1,13 @@
 const PlayerDataIO = function(this: IPlayerDataIO, world: string, uuid: string) {
-    this.file = `kubejs/data/${world}/${uuid}`;
+    this.file = `kubejs/data/${world}/${uuid}.json`;
     this.playerData = {
         totalDeaths: 0,
         itemsLost: 0,
         blocksLost: 0,
         deathTimeStamp: 0,
     };
+
+    console.log(this.file);
 
     Object.assign(this.playerData, JsonIO.read(this.file as any));
 

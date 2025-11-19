@@ -9,6 +9,6 @@ EntityEvents.death(event => {
     const newStats = player.updateInventoryLoss(playerDataIO.getPlayerData);
     newStats.totalDeaths += 1;
     newStats.deathTimeStamp = Date.now();
-    
+    playerDataIO.updatePlayerData();
     player.clearInventory();
 })
